@@ -1,0 +1,3 @@
+[submodule "engine/berry-executorch"]
+	path = engine/berry-executorch
+	url = git@github.com:kadu-v/berry-executorch.git
