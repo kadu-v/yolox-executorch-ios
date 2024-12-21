@@ -1,7 +1,7 @@
 pub mod c_interface;
 mod yolox;
 
-use berry_executorch::{error::ExecutorchError, Tensor};
+use berry_executorch::error::ExecutorchError;
 use imageproc::image::{ImageBuffer, Rgb};
 use jamtrack_rs::byte_tracker;
 use std::path::PathBuf;

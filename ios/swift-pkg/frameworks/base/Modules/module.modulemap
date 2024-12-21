@@ -1,0 +1,9 @@
+framework module CEngine {
+  umbrella header "CEngine.h"
+
+  export *
+  module * { export * }
+  link "dl"
+  link "m"
+  link "pthread"
+}

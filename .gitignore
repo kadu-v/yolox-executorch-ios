@@ -1,2 +1,4 @@
 engine/target
 .DS_Store
+ios/swift-pkg/Engine/xcframework/CEngine.xcframework
+ios/swift-pkg/frameworks/aarch64-*
