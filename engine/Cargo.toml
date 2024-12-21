@@ -6,8 +6,11 @@ edition = "2021"
 [lib]
 crate-type = ["rlib", "staticlib"]
 
+[features]
+apple = ["berry-executorch/apple"]
+
 [dependencies]
-berry-executorch = { path = "./berry-executorch", features = ["apple"] }
+berry-executorch = { path = "./berry-executorch" }
 jamtrack-rs = { git = "ssh://git@github.com/kadu-v/jamtrack-rs.git", version = "0.1.0" }
 anyhow = "1.0.94"
 imageproc = "0.25.0"
