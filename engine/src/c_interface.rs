@@ -23,7 +23,13 @@ pub unsafe extern "C" fn c_new(
     classes: *const *const c_char, // null-terminated array of strings
     classes_len: i32,
 ) -> *mut CDetector {
-    let model_path = CStr::from_ptr(model_path).to_str().unwrap();
+    let model_path = match CStr::from_ptr(model_path).to_str() {
+        Ok(s) => s,
+        Err(err) => {
+            eprintln!("Error: {:?}", err);
+            return std::ptr::null_mut();
+        }
+    };
     let model_path = PathBuf::from(model_path);
     let input_sizes =
         slice::from_raw_parts(input_sizes, input_sizes_len as usize);

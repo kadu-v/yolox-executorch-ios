@@ -9,10 +9,11 @@ TARGETS=(
 )
 
 
+
 function println() {
-    echo "#####################################################################"
-    echo "$1"
-    echo "#####################################################################"
+    local message=$1
+    # 横幅は80文字
+    echo "[ INFO ] $message"
 }
 
 function build_framework() {
@@ -33,15 +34,29 @@ function build_framework() {
 }
 
 
-(
-    cd $SCRIPT_DIR/../engine
-    for target in $TARGETS; do
-        build_framework $target
-    done
+ARG=$1
 
-    println "Build XCframework"
-    xcodebuild -create-xcframework \
-        -framework $SCRIPT_DIR/../ios/swift-pkg/frameworks/aarch64-apple-ios/CEngine.framework \
-        -framework $SCRIPT_DIR/../ios/swift-pkg/frameworks/aarch64-apple-ios-sim/CEngine.framework \
-        -output $SCRIPT_DIR/../ios/swift-pkg/Engine/xcframework/CEngine.xcframework
-)
+if [[ $ARG == "--clean" ]]; then
+    println "Clean"
+    rm -rf $SCRIPT_DIR/../ios/swift-pkg/frameworks
+    rm -rf $SCRIPT_DIR/../ios/swift-pkg/Engine/Sources/Resources
+    rm -rf $SCRIPT_DIR/../ios/swift-pkg/Engine/CEngine.xcframework
+    exit 0
+else
+    (
+        cd $SCRIPT_DIR/../engine
+        for target in $TARGETS; do
+            build_framework $target
+        done
+
+        println "Build XCframework"
+        xcodebuild -create-xcframework \
+            -framework $SCRIPT_DIR/../ios/swift-pkg/frameworks/aarch64-apple-ios/CEngine.framework \
+            -framework $SCRIPT_DIR/../ios/swift-pkg/frameworks/aarch64-apple-ios-sim/CEngine.framework \
+            -output $SCRIPT_DIR/../ios/swift-pkg/Engine/CEngine.xcframework
+        
+        println "Copy to model to swift-pkg Resources"
+        cp -r $SCRIPT_DIR/../models/*.pte $SCRIPT_DIR/../ios/swift-pkg/Engine/Sources/Resources
+        cp -r $SCRIPT_DIR/../models/*.txt $SCRIPT_DIR/../ios/swift-pkg/Engine/Sources/Resources
+    )
+fi
