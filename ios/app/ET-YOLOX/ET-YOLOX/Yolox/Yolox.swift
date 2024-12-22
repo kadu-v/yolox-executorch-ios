@@ -80,7 +80,7 @@ class Yolox {
         let data = output.objects
         let dataLength = output.objects_len
         let preprocessTime = output.pre_processing_time
-        let forwardTime = output.foward_time
+        let forwardTime = output.forward_time
         let postprocessTime = output.post_processing_time
         let objects = [Float](UnsafeBufferPointer(start: data, count: Int(dataLength)))
         return (objects, preprocessTime, forwardTime, postprocessTime)

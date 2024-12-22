@@ -40,6 +40,7 @@
 		F9E5CE0F2D18381F00D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CE0E2D18381F00D0B135 /* Engine */; };
 		F9E5CE122D183A2800D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CE112D183A2800D0B135 /* Engine */; };
 		F9E5CE152D183AC400D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CE142D183AC400D0B135 /* Engine */; };
+		F9E5CE182D183D3000D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CE172D183D3000D0B135 /* Engine */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 				F9E5CDD02D18021F00D0B135 /* Engine in Frameworks */,
 				F9E5CE0F2D18381F00D0B135 /* Engine in Frameworks */,
 				F9E5CE032D1820D400D0B135 /* Engine in Frameworks */,
+				F9E5CE182D183D3000D0B135 /* Engine in Frameworks */,
 				F9E5CDE12D18090400D0B135 /* CoreML.framework in Frameworks */,
 				F9E5CDD32D18030700D0B135 /* Engine in Frameworks */,
 				F9E5CDDC2D1806C200D0B135 /* Engine in Frameworks */,
@@ -230,6 +232,7 @@
 				F9E5CE0E2D18381F00D0B135 /* Engine */,
 				F9E5CE112D183A2800D0B135 /* Engine */,
 				F9E5CE142D183AC400D0B135 /* Engine */,
+				F9E5CE172D183D3000D0B135 /* Engine */,
 			);
 			productName = "ET-YOLOX";
 			productReference = F9E5CD6B2D172C5F00D0B135 /* ET-YOLOX.app */;
@@ -314,7 +317,7 @@
 			mainGroup = F9E5CD622D172C5F00D0B135;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				F9E5CE132D183AC400D0B135 /* XCLocalSwiftPackageReference "../../swift-pkg/Engine" */,
+				F9E5CE162D183D3000D0B135 /* XCLocalSwiftPackageReference "../../swift-pkg/Engine" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F9E5CD6C2D172C5F00D0B135 /* Products */;
@@ -698,7 +701,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		F9E5CE132D183AC400D0B135 /* XCLocalSwiftPackageReference "../../swift-pkg/Engine" */ = {
+		F9E5CE162D183D3000D0B135 /* XCLocalSwiftPackageReference "../../swift-pkg/Engine" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../swift-pkg/Engine";
 		};
@@ -810,6 +813,10 @@
 			productName = Engine;
 		};
 		F9E5CE142D183AC400D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CE172D183D3000D0B135 /* Engine */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Engine;
 		};
