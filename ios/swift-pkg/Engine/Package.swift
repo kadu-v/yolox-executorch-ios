@@ -9,7 +9,7 @@ let package = Package(
     products: [
         .library(
             name: "Engine",
-            targets: ["CEngine-xcframework",  "Engine-deps"]
+            targets: ["CEngine-xcframework",  "Engine"]
         )
     ],
     targets: [
@@ -18,7 +18,7 @@ let package = Package(
             path: "CEngine.xcframework"
         ),
         .target(
-            name: "Engine-deps",
+            name: "Engine",
             dependencies: [],
             path: "Sources",
             resources: [
@@ -26,8 +26,9 @@ let package = Package(
             ],
             linkerSettings: [
                 .linkedFramework("Accelerate"),
-                .linkedFramework("sqlite3"),
+                .linkedLibrary("sqlite3"),
             ]
         )
     ],
+    cxxLanguageStandard: CXXLanguageStandard.cxx17
 )

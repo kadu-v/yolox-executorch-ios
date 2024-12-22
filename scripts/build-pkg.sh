@@ -38,9 +38,7 @@ ARG=$1
 
 if [[ $ARG == "--clean" ]]; then
     println "Clean"
-    rm -rf $SCRIPT_DIR/../ios/swift-pkg/frameworks
-    rm -rf $SCRIPT_DIR/../ios/swift-pkg/Engine/Sources/Resources
-    rm -rf $SCRIPT_DIR/../ios/swift-pkg/Engine/CEngine.xcframework
+    git clean -fdx
     exit 0
 else
     (
@@ -56,7 +54,7 @@ else
             -output $SCRIPT_DIR/../ios/swift-pkg/Engine/CEngine.xcframework
         
         println "Copy to model to swift-pkg Resources"
-        cp -r $SCRIPT_DIR/../models/*.pte $SCRIPT_DIR/../ios/swift-pkg/Engine/Sources/Resources
-        cp -r $SCRIPT_DIR/../models/*.txt $SCRIPT_DIR/../ios/swift-pkg/Engine/Sources/Resources
+        cp -r $SCRIPT_DIR/../engine/models/*.pte $SCRIPT_DIR/../ios/swift-pkg/Engine/Sources/Resources
+        cp -r $SCRIPT_DIR/../engine/models/*.txt $SCRIPT_DIR/../ios/swift-pkg/Engine/Sources/Resources
     )
 fi

@@ -228,6 +228,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7a81dae078cea95a014a339291cec439d2f232ebe854a9d672b796c6afafa9b7"
 
 [[package]]
+name = "dinghy-test"
+version = "0.7.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8d1fb406802f77d6034d3e7c06e7b0130d9a27db666add4fd865374a0e64f237"
+
+[[package]]
 name = "dotenvy"
 version = "0.15.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -245,6 +251,7 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "berry-executorch",
+ "dinghy-test",
  "imageproc",
  "jamtrack-rs",
 ]

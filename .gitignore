@@ -3,4 +3,8 @@ engine/target
 ios/swift-pkg/Engine/CEngine.xcframework
 ios/swift-pkg/Engine/Sources/Resources/*.pte
 ios/swift-pkg/Engine/Sources/Resources/*.txt
+ios/swift-pkg/Engine/.swiftpm
 ios/swift-pkg/frameworks/aarch64-*
+x/
+ios/app/ET-YOLOX/ET-YOLOX.xcodeproj/xcuserdata
+ios/app/ET-YOLOX/ET-YOLOX.xcodeproj/project.xcworkspace/xcuserdata

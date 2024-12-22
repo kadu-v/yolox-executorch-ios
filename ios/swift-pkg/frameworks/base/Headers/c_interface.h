@@ -10,18 +10,19 @@ extern "C"
     {
         float *objects;
         int32_t objects_len;
+        float pre_processing_time;
+        float forward_time;
+        float post_processing_time;
     } DetResult;
 
     CDetector *c_new(
         const char *model_path,
-        const int32_t input_sizes,
-        const int32_t input_sizes_len,
-        const char **classes,
-        const int32_t classes_len);
+        const int32_t *input_sizes,
+        const int32_t input_sizes_len);
 
     // void c_drop(CDetector *detector);
 
-    int32_t c_load(CDetector *detector);
+    int32_t c_init(CDetector *detector);
 
     void c_reset(CDetector *detector);
 

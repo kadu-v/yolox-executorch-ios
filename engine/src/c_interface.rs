@@ -13,6 +13,9 @@ pub struct CDetector {
 pub struct DetResult {
     objects: *const f32,
     objects_len: i32,
+    pre_processing_time: f32,
+    forward_time: f32,
+    post_processing_time: f32,
 }
 
 #[no_mangle]
@@ -20,8 +23,6 @@ pub unsafe extern "C" fn c_new(
     model_path: *const c_char,
     input_sizes: *const i32, // [B, C, H, W]
     input_sizes_len: i32,
-    classes: *const *const c_char, // null-terminated array of strings
-    classes_len: i32,
 ) -> *mut CDetector {
     let model_path = match CStr::from_ptr(model_path).to_str() {
         Ok(s) => s,
@@ -34,17 +35,12 @@ pub unsafe extern "C" fn c_new(
     let input_sizes =
         slice::from_raw_parts(input_sizes, input_sizes_len as usize);
     let input_sizes = input_sizes.iter().map(|&x| x as usize).collect();
-    let classes = slice::from_raw_parts(classes, classes_len as usize);
-    let classes = classes
-        .iter()
-        .map(|&x| CStr::from_ptr(x).to_str().unwrap().to_string())
-        .collect();
-    let detector = Detector::new(&model_path, input_sizes, classes);
+    let detector = Detector::new(&model_path, input_sizes);
     Box::into_raw(Box::new(CDetector { detector }))
 }
 
 #[no_mangle]
-pub unsafe extern "C" fn c_load(detector: *mut CDetector) -> i32 {
+pub unsafe extern "C" fn c_init(detector: *mut CDetector) -> i32 {
     let detector = &mut *detector;
     match detector.detector.load() {
         Ok(_) => 0,
@@ -66,17 +62,27 @@ pub unsafe extern "C" fn c_detect(
 ) -> DetResult {
     let detector = &mut *detector;
     let image = slice::from_raw_parts(image, image_len as usize);
-    let preds = detector.detector.detect(image);
-    let preds_len = preds.len() as i32;
+    let (preds, pre_processing_time, forward_time, post_processing_time) =
+        detector.detector.detect(image);
     let preds = preds
         .into_iter()
-        .flat_map(|(_label, _score, x, y, w, h)| vec![x, y, w, h])
+        .filter(|(_, score, _, _, _, _)| *score > 0.6)
         .collect::<Vec<_>>();
+    let preds = preds
+        .into_iter()
+        .flat_map(|(cls_idx, score, x, y, w, h)| {
+            vec![cls_idx as f32, score, x, y, w, h]
+        })
+        .collect::<Vec<_>>();
+    let preds_len = preds.len() as i32;
     let preds_ptr = preds.as_ptr();
     std::mem::forget(preds);
     DetResult {
         objects: preds_ptr,
         objects_len: preds_len,
+        pre_processing_time,
+        forward_time,
+        post_processing_time,
     }
 }
 

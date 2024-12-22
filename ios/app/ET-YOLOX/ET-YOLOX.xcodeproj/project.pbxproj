@@ -1,0 +1,819 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F9E5CD9B2D172D2100D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CD9A2D172D2100D0B135 /* Engine */; };
+		F9E5CDA02D172D8E00D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CD9F2D172D8E00D0B135 /* Engine */; };
+		F9E5CDA32D172E3800D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CDA22D172E3800D0B135 /* Engine */; };
+		F9E5CDA62D17E9B000D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CDA52D17E9B000D0B135 /* Engine */; };
+		F9E5CDA92D17EECA00D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CDA82D17EECA00D0B135 /* Engine */; };
+		F9E5CDAC2D17EF4600D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CDAB2D17EF4600D0B135 /* Engine */; };
+		F9E5CDB22D17F32700D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CDB12D17F32700D0B135 /* Engine */; };
+		F9E5CDD02D18021F00D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CDCF2D18021F00D0B135 /* Engine */; };
+		F9E5CDD32D18030700D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CDD22D18030700D0B135 /* Engine */; };
+		F9E5CDD62D18046B00D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CDD52D18046B00D0B135 /* Engine */; };
+		F9E5CDD92D1804FB00D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CDD82D1804FB00D0B135 /* Engine */; };
+		F9E5CDDC2D1806C200D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CDDB2D1806C200D0B135 /* Engine */; };
+		F9E5CDDF2D1806FE00D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CDDE2D1806FE00D0B135 /* Engine */; };
+		F9E5CDE12D18090400D0B135 /* CoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9E5CDE02D18090400D0B135 /* CoreML.framework */; };
+		F9E5CDE32D18090B00D0B135 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9E5CDE22D18090B00D0B135 /* Accelerate.framework */; };
+		F9E5CDE42D18091500D0B135 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F9E5CD9D2D172D4500D0B135 /* libsqlite3.tbd */; };
+		F9E5CDE82D1809E900D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CDE72D1809E900D0B135 /* Engine */; };
+		F9E5CDEB2D180A5F00D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CDEA2D180A5F00D0B135 /* Engine */; };
+		F9E5CDEE2D180AB200D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CDED2D180AB200D0B135 /* Engine */; };
+		F9E5CDF12D180F0000D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CDF02D180F0000D0B135 /* Engine */; };
+		F9E5CDF32D18159F00D0B135 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9E5CDF22D18159F00D0B135 /* Metal.framework */; };
+		F9E5CDF52D1815A800D0B135 /* MetalPerformanceShaders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9E5CDF42D1815A800D0B135 /* MetalPerformanceShaders.framework */; };
+		F9E5CDF72D1815AE00D0B135 /* MetalPerformanceShadersGraph.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9E5CDF62D1815AE00D0B135 /* MetalPerformanceShadersGraph.framework */; };
+		F9E5CDFA2D18167D00D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CDF92D18167D00D0B135 /* Engine */; };
+		F9E5CDFD2D181C6600D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CDFC2D181C6600D0B135 /* Engine */; };
+		F9E5CE002D18204800D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CDFF2D18204800D0B135 /* Engine */; };
+		F9E5CE032D1820D400D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CE022D1820D400D0B135 /* Engine */; };
+		F9E5CE062D18216300D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CE052D18216300D0B135 /* Engine */; };
+		F9E5CE092D182BD300D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CE082D182BD300D0B135 /* Engine */; };
+		F9E5CE0C2D182E6200D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CE0B2D182E6200D0B135 /* Engine */; };
+		F9E5CE0F2D18381F00D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CE0E2D18381F00D0B135 /* Engine */; };
+		F9E5CE122D183A2800D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CE112D183A2800D0B135 /* Engine */; };
+		F9E5CE152D183AC400D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CE142D183AC400D0B135 /* Engine */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F9E5CD7C2D172C6000D0B135 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F9E5CD632D172C5F00D0B135 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F9E5CD6A2D172C5F00D0B135;
+			remoteInfo = "ET-YOLOX";
+		};
+		F9E5CD862D172C6000D0B135 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F9E5CD632D172C5F00D0B135 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F9E5CD6A2D172C5F00D0B135;
+			remoteInfo = "ET-YOLOX";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F9E5CD6B2D172C5F00D0B135 /* ET-YOLOX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ET-YOLOX.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9E5CD7B2D172C6000D0B135 /* ET-YOLOXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ET-YOLOXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9E5CD852D172C6000D0B135 /* ET-YOLOXUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ET-YOLOXUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9E5CD9D2D172D4500D0B135 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		F9E5CDE02D18090400D0B135 /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
+		F9E5CDE22D18090B00D0B135 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		F9E5CDE52D18091500D0B135 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		F9E5CDF22D18159F00D0B135 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		F9E5CDF42D1815A800D0B135 /* MetalPerformanceShaders.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalPerformanceShaders.framework; path = System/Library/Frameworks/MetalPerformanceShaders.framework; sourceTree = SDKROOT; };
+		F9E5CDF62D1815AE00D0B135 /* MetalPerformanceShadersGraph.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalPerformanceShadersGraph.framework; path = System/Library/Frameworks/MetalPerformanceShadersGraph.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		F9E5CD6D2D172C5F00D0B135 /* ET-YOLOX */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "ET-YOLOX";
+			sourceTree = "<group>";
+		};
+		F9E5CD7E2D172C6000D0B135 /* ET-YOLOXTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "ET-YOLOXTests";
+			sourceTree = "<group>";
+		};
+		F9E5CD882D172C6000D0B135 /* ET-YOLOXUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "ET-YOLOXUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F9E5CD682D172C5F00D0B135 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9E5CE002D18204800D0B135 /* Engine in Frameworks */,
+				F9E5CDF12D180F0000D0B135 /* Engine in Frameworks */,
+				F9E5CDDF2D1806FE00D0B135 /* Engine in Frameworks */,
+				F9E5CDE82D1809E900D0B135 /* Engine in Frameworks */,
+				F9E5CDD62D18046B00D0B135 /* Engine in Frameworks */,
+				F9E5CDE42D18091500D0B135 /* libsqlite3.tbd in Frameworks */,
+				F9E5CDEE2D180AB200D0B135 /* Engine in Frameworks */,
+				F9E5CE092D182BD300D0B135 /* Engine in Frameworks */,
+				F9E5CDF72D1815AE00D0B135 /* MetalPerformanceShadersGraph.framework in Frameworks */,
+				F9E5CDA92D17EECA00D0B135 /* Engine in Frameworks */,
+				F9E5CDA62D17E9B000D0B135 /* Engine in Frameworks */,
+				F9E5CDD92D1804FB00D0B135 /* Engine in Frameworks */,
+				F9E5CDAC2D17EF4600D0B135 /* Engine in Frameworks */,
+				F9E5CDA02D172D8E00D0B135 /* Engine in Frameworks */,
+				F9E5CE152D183AC400D0B135 /* Engine in Frameworks */,
+				F9E5CDD02D18021F00D0B135 /* Engine in Frameworks */,
+				F9E5CE0F2D18381F00D0B135 /* Engine in Frameworks */,
+				F9E5CE032D1820D400D0B135 /* Engine in Frameworks */,
+				F9E5CDE12D18090400D0B135 /* CoreML.framework in Frameworks */,
+				F9E5CDD32D18030700D0B135 /* Engine in Frameworks */,
+				F9E5CDDC2D1806C200D0B135 /* Engine in Frameworks */,
+				F9E5CD9B2D172D2100D0B135 /* Engine in Frameworks */,
+				F9E5CE0C2D182E6200D0B135 /* Engine in Frameworks */,
+				F9E5CDF32D18159F00D0B135 /* Metal.framework in Frameworks */,
+				F9E5CE062D18216300D0B135 /* Engine in Frameworks */,
+				F9E5CDEB2D180A5F00D0B135 /* Engine in Frameworks */,
+				F9E5CDE32D18090B00D0B135 /* Accelerate.framework in Frameworks */,
+				F9E5CDFD2D181C6600D0B135 /* Engine in Frameworks */,
+				F9E5CDFA2D18167D00D0B135 /* Engine in Frameworks */,
+				F9E5CE122D183A2800D0B135 /* Engine in Frameworks */,
+				F9E5CDA32D172E3800D0B135 /* Engine in Frameworks */,
+				F9E5CDF52D1815A800D0B135 /* MetalPerformanceShaders.framework in Frameworks */,
+				F9E5CDB22D17F32700D0B135 /* Engine in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9E5CD782D172C6000D0B135 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9E5CD822D172C6000D0B135 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F9E5CD622D172C5F00D0B135 = {
+			isa = PBXGroup;
+			children = (
+				F9E5CD6D2D172C5F00D0B135 /* ET-YOLOX */,
+				F9E5CD7E2D172C6000D0B135 /* ET-YOLOXTests */,
+				F9E5CD882D172C6000D0B135 /* ET-YOLOXUITests */,
+				F9E5CD9C2D172D4500D0B135 /* Frameworks */,
+				F9E5CD6C2D172C5F00D0B135 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F9E5CD6C2D172C5F00D0B135 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F9E5CD6B2D172C5F00D0B135 /* ET-YOLOX.app */,
+				F9E5CD7B2D172C6000D0B135 /* ET-YOLOXTests.xctest */,
+				F9E5CD852D172C6000D0B135 /* ET-YOLOXUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F9E5CD9C2D172D4500D0B135 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F9E5CDF62D1815AE00D0B135 /* MetalPerformanceShadersGraph.framework */,
+				F9E5CDF42D1815A800D0B135 /* MetalPerformanceShaders.framework */,
+				F9E5CDF22D18159F00D0B135 /* Metal.framework */,
+				F9E5CDE52D18091500D0B135 /* libsqlite3.0.tbd */,
+				F9E5CDE22D18090B00D0B135 /* Accelerate.framework */,
+				F9E5CDE02D18090400D0B135 /* CoreML.framework */,
+				F9E5CD9D2D172D4500D0B135 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F9E5CD6A2D172C5F00D0B135 /* ET-YOLOX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9E5CD8F2D172C6000D0B135 /* Build configuration list for PBXNativeTarget "ET-YOLOX" */;
+			buildPhases = (
+				F9E5CD672D172C5F00D0B135 /* Sources */,
+				F9E5CD682D172C5F00D0B135 /* Frameworks */,
+				F9E5CD692D172C5F00D0B135 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				F9E5CD6D2D172C5F00D0B135 /* ET-YOLOX */,
+			);
+			name = "ET-YOLOX";
+			packageProductDependencies = (
+				F9E5CD9A2D172D2100D0B135 /* Engine */,
+				F9E5CD9F2D172D8E00D0B135 /* Engine */,
+				F9E5CDA22D172E3800D0B135 /* Engine */,
+				F9E5CDA52D17E9B000D0B135 /* Engine */,
+				F9E5CDA82D17EECA00D0B135 /* Engine */,
+				F9E5CDAB2D17EF4600D0B135 /* Engine */,
+				F9E5CDB12D17F32700D0B135 /* Engine */,
+				F9E5CDCF2D18021F00D0B135 /* Engine */,
+				F9E5CDD22D18030700D0B135 /* Engine */,
+				F9E5CDD52D18046B00D0B135 /* Engine */,
+				F9E5CDD82D1804FB00D0B135 /* Engine */,
+				F9E5CDDB2D1806C200D0B135 /* Engine */,
+				F9E5CDDE2D1806FE00D0B135 /* Engine */,
+				F9E5CDE72D1809E900D0B135 /* Engine */,
+				F9E5CDEA2D180A5F00D0B135 /* Engine */,
+				F9E5CDED2D180AB200D0B135 /* Engine */,
+				F9E5CDF02D180F0000D0B135 /* Engine */,
+				F9E5CDF92D18167D00D0B135 /* Engine */,
+				F9E5CDFC2D181C6600D0B135 /* Engine */,
+				F9E5CDFF2D18204800D0B135 /* Engine */,
+				F9E5CE022D1820D400D0B135 /* Engine */,
+				F9E5CE052D18216300D0B135 /* Engine */,
+				F9E5CE082D182BD300D0B135 /* Engine */,
+				F9E5CE0B2D182E6200D0B135 /* Engine */,
+				F9E5CE0E2D18381F00D0B135 /* Engine */,
+				F9E5CE112D183A2800D0B135 /* Engine */,
+				F9E5CE142D183AC400D0B135 /* Engine */,
+			);
+			productName = "ET-YOLOX";
+			productReference = F9E5CD6B2D172C5F00D0B135 /* ET-YOLOX.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F9E5CD7A2D172C6000D0B135 /* ET-YOLOXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9E5CD922D172C6000D0B135 /* Build configuration list for PBXNativeTarget "ET-YOLOXTests" */;
+			buildPhases = (
+				F9E5CD772D172C6000D0B135 /* Sources */,
+				F9E5CD782D172C6000D0B135 /* Frameworks */,
+				F9E5CD792D172C6000D0B135 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F9E5CD7D2D172C6000D0B135 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F9E5CD7E2D172C6000D0B135 /* ET-YOLOXTests */,
+			);
+			name = "ET-YOLOXTests";
+			packageProductDependencies = (
+			);
+			productName = "ET-YOLOXTests";
+			productReference = F9E5CD7B2D172C6000D0B135 /* ET-YOLOXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F9E5CD842D172C6000D0B135 /* ET-YOLOXUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9E5CD952D172C6000D0B135 /* Build configuration list for PBXNativeTarget "ET-YOLOXUITests" */;
+			buildPhases = (
+				F9E5CD812D172C6000D0B135 /* Sources */,
+				F9E5CD822D172C6000D0B135 /* Frameworks */,
+				F9E5CD832D172C6000D0B135 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F9E5CD872D172C6000D0B135 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F9E5CD882D172C6000D0B135 /* ET-YOLOXUITests */,
+			);
+			name = "ET-YOLOXUITests";
+			packageProductDependencies = (
+			);
+			productName = "ET-YOLOXUITests";
+			productReference = F9E5CD852D172C6000D0B135 /* ET-YOLOXUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F9E5CD632D172C5F00D0B135 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					F9E5CD6A2D172C5F00D0B135 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					F9E5CD7A2D172C6000D0B135 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = F9E5CD6A2D172C5F00D0B135;
+					};
+					F9E5CD842D172C6000D0B135 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = F9E5CD6A2D172C5F00D0B135;
+					};
+				};
+			};
+			buildConfigurationList = F9E5CD662D172C5F00D0B135 /* Build configuration list for PBXProject "ET-YOLOX" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F9E5CD622D172C5F00D0B135;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F9E5CE132D183AC400D0B135 /* XCLocalSwiftPackageReference "../../swift-pkg/Engine" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = F9E5CD6C2D172C5F00D0B135 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F9E5CD6A2D172C5F00D0B135 /* ET-YOLOX */,
+				F9E5CD7A2D172C6000D0B135 /* ET-YOLOXTests */,
+				F9E5CD842D172C6000D0B135 /* ET-YOLOXUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F9E5CD692D172C5F00D0B135 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9E5CD792D172C6000D0B135 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9E5CD832D172C6000D0B135 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F9E5CD672D172C5F00D0B135 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9E5CD772D172C6000D0B135 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9E5CD812D172C6000D0B135 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F9E5CD7D2D172C6000D0B135 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F9E5CD6A2D172C5F00D0B135 /* ET-YOLOX */;
+			targetProxy = F9E5CD7C2D172C6000D0B135 /* PBXContainerItemProxy */;
+		};
+		F9E5CD872D172C6000D0B135 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F9E5CD6A2D172C5F00D0B135 /* ET-YOLOX */;
+			targetProxy = F9E5CD862D172C6000D0B135 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F9E5CD8D2D172C6000D0B135 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OBJC_INTEROP_MODE = objc;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F9E5CD8E2D172C6000D0B135 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_INTEROP_MODE = objc;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F9E5CD902D172C6000D0B135 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ET-YOLOX/Preview Content\"";
+				DEVELOPMENT_TEAM = DZ77T7JLGY;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "For Yolox demo";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.ET-YOLOX";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F9E5CD912D172C6000D0B135 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ET-YOLOX/Preview Content\"";
+				DEVELOPMENT_TEAM = DZ77T7JLGY;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "For Yolox demo";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-lc++",
+				);
+				"OTHER_LDFLAGS[arch=*]" = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.ET-YOLOX";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F9E5CD932D172C6000D0B135 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DZ77T7JLGY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.ET-YOLOXTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ET-YOLOX.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ET-YOLOX";
+			};
+			name = Debug;
+		};
+		F9E5CD942D172C6000D0B135 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DZ77T7JLGY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.ET-YOLOXTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ET-YOLOX.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ET-YOLOX";
+			};
+			name = Release;
+		};
+		F9E5CD962D172C6000D0B135 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DZ77T7JLGY;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.ET-YOLOXUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "ET-YOLOX";
+			};
+			name = Debug;
+		};
+		F9E5CD972D172C6000D0B135 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DZ77T7JLGY;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.ET-YOLOXUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "ET-YOLOX";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F9E5CD662D172C5F00D0B135 /* Build configuration list for PBXProject "ET-YOLOX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9E5CD8D2D172C6000D0B135 /* Debug */,
+				F9E5CD8E2D172C6000D0B135 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F9E5CD8F2D172C6000D0B135 /* Build configuration list for PBXNativeTarget "ET-YOLOX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9E5CD902D172C6000D0B135 /* Debug */,
+				F9E5CD912D172C6000D0B135 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F9E5CD922D172C6000D0B135 /* Build configuration list for PBXNativeTarget "ET-YOLOXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9E5CD932D172C6000D0B135 /* Debug */,
+				F9E5CD942D172C6000D0B135 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F9E5CD952D172C6000D0B135 /* Build configuration list for PBXNativeTarget "ET-YOLOXUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9E5CD962D172C6000D0B135 /* Debug */,
+				F9E5CD972D172C6000D0B135 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		F9E5CE132D183AC400D0B135 /* XCLocalSwiftPackageReference "../../swift-pkg/Engine" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../swift-pkg/Engine";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F9E5CD9A2D172D2100D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CD9F2D172D8E00D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CDA22D172E3800D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CDA52D17E9B000D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CDA82D17EECA00D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CDAB2D17EF4600D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CDB12D17F32700D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CDCF2D18021F00D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CDD22D18030700D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CDD52D18046B00D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CDD82D1804FB00D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CDDB2D1806C200D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CDDE2D1806FE00D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CDE72D1809E900D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CDEA2D180A5F00D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CDED2D180AB200D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CDF02D180F0000D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CDF92D18167D00D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CDFC2D181C6600D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CDFF2D18204800D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CE022D1820D400D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CE052D18216300D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CE082D182BD300D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CE0B2D182E6200D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CE0E2D18381F00D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CE112D183A2800D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9E5CE142D183AC400D0B135 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = F9E5CD632D172C5F00D0B135 /* Project object */;
+}

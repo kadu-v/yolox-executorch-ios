@@ -1,7 +1,7 @@
 use berry_executorch::{module::Module, ExecutorchError, Tensor};
 use imageproc::image::{
     imageops::{self, FilterType},
-    ImageBuffer, Pixel, Rgb,
+    ImageBuffer, Rgb,
 };
 use std::path::PathBuf;
 
@@ -9,20 +9,14 @@ use std::path::PathBuf;
 pub struct YoloX {
     module: Module,
     input_sizes: Vec<usize>,
-    classes: Vec<String>,
 }
 
 impl YoloX {
-    pub fn new(
-        model_path: &PathBuf,
-        input_sizes: Vec<usize>,
-        classes: Vec<String>,
-    ) -> Self {
+    pub fn new(model_path: &PathBuf, input_sizes: Vec<usize>) -> Self {
         let module = Module::new(&model_path.display().to_string()).unwrap();
         Self {
             module,
             input_sizes,
-            classes,
         }
     }
 
@@ -45,7 +39,7 @@ impl YoloX {
     pub fn pre_processing(
         &self,
         image: &ImageBuffer<Rgb<u8>, Vec<u8>>,
-    ) -> Vec<f32> {
+    ) -> ImageBuffer<Rgb<u8>, Vec<u8>> {
         let (h, w) = (self.input_sizes[2], self.input_sizes[3]);
         let image_buffer = self.padding_image(image);
         let image_buffer = imageops::resize(
@@ -54,19 +48,27 @@ impl YoloX {
             h as u32,
             FilterType::Nearest,
         );
+        image_buffer
+    }
 
-        // convert image to Vec<f32> with channel first format
-        let mut image = vec![0.0; 3 * h as usize * w as usize];
-        for j in 0..h {
-            for i in 0..w {
-                let pixel = image_buffer.get_pixel(i as u32, j as u32);
-                let channels = pixel.channels();
-                for c in 0..3 {
-                    image[c * h * w + j * w + i] = channels[c] as f32;
+    pub fn convert_to_channel_first(&self, image: &[f32]) -> Vec<f32> {
+        let (_, channels, height, width) = (
+            self.input_sizes[0],
+            self.input_sizes[1],
+            self.input_sizes[2],
+            self.input_sizes[3],
+        );
+        let mut new_image = vec![0.0; channels * height * width];
+        for c in 0..channels {
+            for h in 0..height {
+                for w in 0..width {
+                    let idx = c * height * width + h * width + w;
+                    new_image[idx] =
+                        image[h * width * channels + w * channels + c];
                 }
             }
         }
-        image
+        new_image
     }
 
     fn padding_image(
@@ -96,7 +98,7 @@ impl YoloX {
         &self,
         preds: &Tensor,
     ) -> Vec<(
-        String,
+        i32,
         /*score=*/ f32,
         /*x=*/ f32,
         /*y=*/ f32,
@@ -117,7 +119,6 @@ impl YoloX {
                 .enumerate()
                 .max_by(|a, b| a.1.partial_cmp(&(b.1)).unwrap())
                 .unwrap();
-            let class = self.classes[class].clone();
             let x1 = preds[offset];
             let y1 = preds[offset + 1];
             let x2 = preds[offset + 2];
@@ -131,11 +132,10 @@ impl YoloX {
         let mut result = vec![];
         // filter by objectness
         let indices =
-            self.multiclass_nms_class_agnostic(&locs, &scores, 0.7, 0.1);
+            self.multiclass_nms_class_agnostic(&locs, &scores, 0.7, 0.4);
         for bbox in indices {
             let (i, score, x, y, w, h) = bbox;
-            let class = &classes[i];
-            result.push((class.clone(), score, x, y, w, h));
+            result.push((classes[i] as i32, score, x, y, w, h));
         }
         result
     }
