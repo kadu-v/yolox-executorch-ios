@@ -95,10 +95,7 @@ impl YoloX {
         1.0 / (1.0 + (-x).exp())
     }
 
-    pub fn post_processing(
-        &self,
-        preds: &Tensor,
-    ) -> (/*class_id=*/ Vec<i32>, /*object=*/ Vec<Object>) {
+    pub fn post_processing(&self, preds: &Tensor) -> Vec<Object> {
         let preds = &preds.data;
         let mut positions = vec![];
         let mut classes = vec![];
@@ -131,13 +128,14 @@ impl YoloX {
         for (i, score, x1, y1, x2, y2) in indices {
             let obj = Object::new(
                 Rect::new(x1, y1, (x2 - x1).abs(), (y2 - y1).abs()),
-                0,
+                classes[i],
                 score,
+                None,
             );
             class_idx.push(classes[i] as i32);
             objs.push(obj);
         }
-        (class_idx, objs)
+        objs
     }
 
     fn calc_loc(

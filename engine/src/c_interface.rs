@@ -62,25 +62,19 @@ pub unsafe extern "C" fn c_detect(
 ) -> DetResult {
     let detector = &mut *detector;
     let image = slice::from_raw_parts(image, image_len as usize);
-    let (
-        preds,
-        tracks,
-        pre_processing_time,
-        forward_time,
-        post_processing_time,
-    ) = detector.detector.detect(image);
-    let preds = preds.into_iter().zip(tracks).collect::<Vec<_>>();
+    let (preds, pre_processing_time, forward_time, post_processing_time) =
+        detector.detector.detect(image);
     let preds = preds
         .into_iter()
-        .flat_map(|(cls_idx, track)| {
+        .flat_map(|obj| {
             vec![
-                cls_idx as f32,
-                track.get_score(),
-                track.get_track_id() as f32,
-                track.rect.x(),
-                track.rect.y(),
-                track.rect.width(),
-                track.rect.height(),
+                obj.get_label() as f32,
+                obj.get_x(),
+                obj.get_track_id().unwrap() as f32,
+                obj.get_x(),
+                obj.get_y(),
+                obj.get_width(),
+                obj.get_height(),
             ]
         })
         .collect::<Vec<_>>();

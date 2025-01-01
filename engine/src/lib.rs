@@ -3,7 +3,7 @@ mod yolox;
 
 use berry_executorch::error::ExecutorchError;
 use imageproc::image::{ImageBuffer, Rgb};
-use jamtrack_rs::{byte_tracker, strack::STrack};
+use jamtrack_rs::{byte_tracker, object::Object};
 use std::path::PathBuf;
 
 #[derive(Debug)]
@@ -35,10 +35,7 @@ impl Detector {
             byte_tracker::ByteTracker::new(30, 30, 0.5, 0.6, 0.8);
     }
 
-    pub fn detect(
-        &mut self,
-        image: &[f32],
-    ) -> (Vec<i32>, Vec<STrack>, f32, f32, f32) {
+    pub fn detect(&mut self, image: &[f32]) -> (Vec<Object>, f32, f32, f32) {
         let start_time = std::time::Instant::now();
         let converted_image = self.yolox.convert_to_channel_first(image);
         let pre_processing_time = start_time.elapsed().as_millis() as f32;
@@ -52,15 +49,13 @@ impl Detector {
                 let preds = self.yolox.post_processing(&tensor);
                 // TODO: class_idx and objects are corresponding to each other
                 //      but tracks are not corresponding to class_idx
-                let class_idx = preds.0;
-                let Ok(tracks) = self.byte_tracker.update(&preds.1) else {
-                    return (vec![], vec![], 0.0, 0.0, 0.0);
+                let Ok(objs) = self.byte_tracker.update(&preds) else {
+                    return (vec![], 0.0, 0.0, 0.0);
                 };
                 let post_processing_time =
                     start_time.elapsed().as_millis() as f32;
                 return (
-                    class_idx,
-                    tracks,
+                    objs,
                     pre_processing_time,
                     forward_time,
                     post_processing_time,
@@ -68,7 +63,7 @@ impl Detector {
             }
             Err(err) => {
                 eprintln!("Error: {:?}", err);
-                return (vec![], vec![], 0.0, 0.0, 0.0);
+                return (vec![], 0.0, 0.0, 0.0);
             }
         };
     }
