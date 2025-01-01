@@ -23,8 +23,15 @@ fn main() {
     let image = image::open(image_path).unwrap().to_rgb8();
     let resized_image = detector.pre_processing(&image);
     let preds = detector.detect(&resized_image);
-    for (cls_idx, score, x1, y1, x2, y2) in preds.0 {
+    for (&cls_idx, track) in preds.0.iter().zip(preds.1) {
         let cls = &classes[cls_idx as usize];
-        println!("{}: ({}, {}, {}, {})", cls, x1, y1, x2, y2);
+        println!(
+            "{}: (x = {}, y = {}, w = {}, h = {})",
+            cls,
+            track.rect.x(),
+            track.rect.y(),
+            track.rect.width(),
+            track.rect.height()
+        );
     }
 }

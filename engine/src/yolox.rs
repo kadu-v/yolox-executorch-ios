@@ -3,7 +3,8 @@ use imageproc::image::{
     imageops::{self, FilterType},
     ImageBuffer, Rgb,
 };
-use std::path::PathBuf;
+use jamtrack_rs::{object::Object, rect::Rect};
+use std::{path::PathBuf, vec};
 
 #[derive(Debug)]
 pub struct YoloX {
@@ -97,14 +98,7 @@ impl YoloX {
     pub fn post_processing(
         &self,
         preds: &Tensor,
-    ) -> Vec<(
-        i32,
-        /*score=*/ f32,
-        /*x=*/ f32,
-        /*y=*/ f32,
-        /*w=*/ f32,
-        /*h=*/ f32,
-    )> {
+    ) -> (/*class_id=*/ Vec<i32>, /*object=*/ Vec<Object>) {
         let preds = &preds.data;
         let mut positions = vec![];
         let mut classes = vec![];
@@ -129,15 +123,21 @@ impl YoloX {
         }
         let locs = self.calc_loc(&positions, &self.input_sizes);
 
-        let mut result = vec![];
+        let mut class_idx = vec![];
+        let mut objs = vec![];
         // filter by objectness
         let indices =
-            self.multiclass_nms_class_agnostic(&locs, &scores, 0.7, 0.4);
-        for bbox in indices {
-            let (i, score, x, y, w, h) = bbox;
-            result.push((classes[i] as i32, score, x, y, w, h));
+            self.multiclass_nms_class_agnostic(&locs, &scores, 0.4, 0.4);
+        for (i, score, x1, y1, x2, y2) in indices {
+            let obj = Object::new(
+                Rect::new(x1, y1, (x2 - x1).abs(), (y2 - y1).abs()),
+                0,
+                score,
+            );
+            class_idx.push(classes[i] as i32);
+            objs.push(obj);
         }
-        result
+        (class_idx, objs)
     }
 
     fn calc_loc(
@@ -166,7 +166,6 @@ impl YoloX {
             h_grids.push(h_grid);
             w_grids.push(w_grid);
         }
-        // let acc = vec![0, 52 * 52, 52 * 52 + 26 * 26, 52 * 52 + 26 * 26 + 13 * 13];
         let mut acc = vec![0];
         for stride in strides.iter() {
             acc.push(acc.last().unwrap() + h / stride * w / stride);

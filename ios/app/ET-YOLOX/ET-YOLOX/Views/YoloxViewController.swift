@@ -130,21 +130,22 @@ class YoloxViewController: ViewController {
         drawTime(preprocessTime: preprocessTime,
                  inferTime: inferenceTime,
                  postprocessTime: postprocessTime)
-        for i in 0 ..< preds.count / 6 {
-            let offset = i * 6
+        for i in 0 ..< preds.count / 7 {
+            let offset = i * 7
             let clsIdx = preds[offset + 0]
             let score = preds[offset + 1]
-            let x1 = preds[offset + 2] / Float(detector.InputSizes.3)
-            let y1 = preds[offset + 3] / Float(detector.InputSizes.2)
-            let x2 = preds[offset + 4] / Float(detector.InputSizes.3)
-            let y2 = preds[offset + 5] / Float(detector.InputSizes.2)
+            let trackId = preds[offset + 2]
+            let x = preds[offset + 3] / Float(detector.InputSizes.3)
+            let y = preds[offset + 4] / Float(detector.InputSizes.2)
+            let w = preds[offset + 5] / Float(detector.InputSizes.3)
+            let h = preds[offset + 6] / Float(detector.InputSizes.2)
 
-            if score < 0.65 {
+            if score < 0.55 {
                 continue
             }
             let cls = detector.getClass(clsIdx: clsIdx)
-            let bbox = CGRect(x: CGFloat(x1), y: CGFloat(y1), width: CGFloat(x2 - x1), height: CGFloat(y2 - y1))
-            drawDetection(bbox: bbox, text: String(format: "%@ %.2f", cls, score))
+            let bbox = CGRect(x: CGFloat(x), y: CGFloat(y), width: CGFloat(w), height: CGFloat(h))
+            drawDetection(bbox: bbox, text: String(format: "%d: %@ %.2f\n", Int(trackId), cls, score))
         }
         CATransaction.commit()
     }

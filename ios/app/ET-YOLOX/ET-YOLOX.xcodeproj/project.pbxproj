@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F9D7032D2D255C2C005741B7 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9D7032C2D255C2C005741B7 /* Engine */; };
+		F9D703302D255D67005741B7 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9D7032F2D255D67005741B7 /* Engine */; };
+		F9D703332D2564FF005741B7 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9D703322D2564FF005741B7 /* Engine */; };
+		F9D703362D25658A005741B7 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9D703352D25658A005741B7 /* Engine */; };
+		F9D703392D25684F005741B7 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9D703382D25684F005741B7 /* Engine */; };
+		F9D7033C2D256A39005741B7 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9D7033B2D256A39005741B7 /* Engine */; };
+		F9D7033F2D256CE6005741B7 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9D7033E2D256CE6005741B7 /* Engine */; };
+		F9D703422D256E38005741B7 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9D703412D256E38005741B7 /* Engine */; };
+		F9D703452D25765A005741B7 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9D703442D25765A005741B7 /* Engine */; };
+		F9D703482D25771A005741B7 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9D703472D25771A005741B7 /* Engine */; };
 		F9E5CD9B2D172D2100D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CD9A2D172D2100D0B135 /* Engine */; };
 		F9E5CDA02D172D8E00D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CD9F2D172D8E00D0B135 /* Engine */; };
 		F9E5CDA32D172E3800D0B135 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = F9E5CDA22D172E3800D0B135 /* Engine */; };
@@ -100,6 +110,7 @@
 				F9E5CDF12D180F0000D0B135 /* Engine in Frameworks */,
 				F9E5CDDF2D1806FE00D0B135 /* Engine in Frameworks */,
 				F9E5CDE82D1809E900D0B135 /* Engine in Frameworks */,
+				F9D703362D25658A005741B7 /* Engine in Frameworks */,
 				F9E5CDD62D18046B00D0B135 /* Engine in Frameworks */,
 				F9E5CDE42D18091500D0B135 /* libsqlite3.tbd in Frameworks */,
 				F9E5CDEE2D180AB200D0B135 /* Engine in Frameworks */,
@@ -110,23 +121,32 @@
 				F9E5CDD92D1804FB00D0B135 /* Engine in Frameworks */,
 				F9E5CDAC2D17EF4600D0B135 /* Engine in Frameworks */,
 				F9E5CDA02D172D8E00D0B135 /* Engine in Frameworks */,
+				F9D703452D25765A005741B7 /* Engine in Frameworks */,
 				F9E5CE152D183AC400D0B135 /* Engine in Frameworks */,
 				F9E5CDD02D18021F00D0B135 /* Engine in Frameworks */,
 				F9E5CE0F2D18381F00D0B135 /* Engine in Frameworks */,
 				F9E5CE032D1820D400D0B135 /* Engine in Frameworks */,
 				F9E5CE182D183D3000D0B135 /* Engine in Frameworks */,
+				F9D703422D256E38005741B7 /* Engine in Frameworks */,
+				F9D7033C2D256A39005741B7 /* Engine in Frameworks */,
 				F9E5CDE12D18090400D0B135 /* CoreML.framework in Frameworks */,
+				F9D7032D2D255C2C005741B7 /* Engine in Frameworks */,
 				F9E5CDD32D18030700D0B135 /* Engine in Frameworks */,
+				F9D7033F2D256CE6005741B7 /* Engine in Frameworks */,
 				F9E5CDDC2D1806C200D0B135 /* Engine in Frameworks */,
 				F9E5CD9B2D172D2100D0B135 /* Engine in Frameworks */,
+				F9D703332D2564FF005741B7 /* Engine in Frameworks */,
+				F9D703392D25684F005741B7 /* Engine in Frameworks */,
 				F9E5CE0C2D182E6200D0B135 /* Engine in Frameworks */,
 				F9E5CDF32D18159F00D0B135 /* Metal.framework in Frameworks */,
 				F9E5CE062D18216300D0B135 /* Engine in Frameworks */,
 				F9E5CDEB2D180A5F00D0B135 /* Engine in Frameworks */,
 				F9E5CDE32D18090B00D0B135 /* Accelerate.framework in Frameworks */,
+				F9D703482D25771A005741B7 /* Engine in Frameworks */,
 				F9E5CDFD2D181C6600D0B135 /* Engine in Frameworks */,
 				F9E5CDFA2D18167D00D0B135 /* Engine in Frameworks */,
 				F9E5CE122D183A2800D0B135 /* Engine in Frameworks */,
+				F9D703302D255D67005741B7 /* Engine in Frameworks */,
 				F9E5CDA32D172E3800D0B135 /* Engine in Frameworks */,
 				F9E5CDF52D1815A800D0B135 /* MetalPerformanceShaders.framework in Frameworks */,
 				F9E5CDB22D17F32700D0B135 /* Engine in Frameworks */,
@@ -233,6 +253,16 @@
 				F9E5CE112D183A2800D0B135 /* Engine */,
 				F9E5CE142D183AC400D0B135 /* Engine */,
 				F9E5CE172D183D3000D0B135 /* Engine */,
+				F9D7032C2D255C2C005741B7 /* Engine */,
+				F9D7032F2D255D67005741B7 /* Engine */,
+				F9D703322D2564FF005741B7 /* Engine */,
+				F9D703352D25658A005741B7 /* Engine */,
+				F9D703382D25684F005741B7 /* Engine */,
+				F9D7033B2D256A39005741B7 /* Engine */,
+				F9D7033E2D256CE6005741B7 /* Engine */,
+				F9D703412D256E38005741B7 /* Engine */,
+				F9D703442D25765A005741B7 /* Engine */,
+				F9D703472D25771A005741B7 /* Engine */,
 			);
 			productName = "ET-YOLOX";
 			productReference = F9E5CD6B2D172C5F00D0B135 /* ET-YOLOX.app */;
@@ -317,7 +347,7 @@
 			mainGroup = F9E5CD622D172C5F00D0B135;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				F9E5CE162D183D3000D0B135 /* XCLocalSwiftPackageReference "../../swift-pkg/Engine" */,
+				F9D703462D25771A005741B7 /* XCLocalSwiftPackageReference "../../swift-pkg/Engine" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F9E5CD6C2D172C5F00D0B135 /* Products */;
@@ -701,13 +731,53 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		F9E5CE162D183D3000D0B135 /* XCLocalSwiftPackageReference "../../swift-pkg/Engine" */ = {
+		F9D703462D25771A005741B7 /* XCLocalSwiftPackageReference "../../swift-pkg/Engine" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../swift-pkg/Engine";
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F9D7032C2D255C2C005741B7 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9D7032F2D255D67005741B7 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9D703322D2564FF005741B7 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9D703352D25658A005741B7 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9D703382D25684F005741B7 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9D7033B2D256A39005741B7 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9D7033E2D256CE6005741B7 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9D703412D256E38005741B7 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9D703442D25765A005741B7 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
+		F9D703472D25771A005741B7 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
+		};
 		F9E5CD9A2D172D2100D0B135 /* Engine */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Engine;
