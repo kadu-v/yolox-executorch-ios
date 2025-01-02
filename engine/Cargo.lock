@@ -430,8 +430,8 @@ dependencies = [
 
 [[package]]
 name = "jamtrack-rs"
-version = "0.2.0"
-source = "git+ssh://git@github.com/kadu-v/jamtrack-rs.git#f8ab46a0faaf9e082909ba1c20aa7c05fd96c959"
+version = "0.2.2"
+source = "git+ssh://git@github.com/kadu-v/jamtrack-rs.git#e7622122837607b46256ac5320adb7e78b2c4eca"
 dependencies = [
  "nalgebra 0.33.2",
  "num",

@@ -22,16 +22,17 @@ fn main() {
     let image_path = base_path.join("examples/dog.jpg");
     let image = image::open(image_path).unwrap().to_rgb8();
     let resized_image = detector.pre_processing(&image);
-    let preds = detector.detect(&resized_image);
-    for obj in preds.0 {
-        let cls = &classes[obj.get_label()];
+    let (cls_idx, objs, _, _, _) = detector.detect(&resized_image, false, 0);
+    for (i, obj) in objs.iter().enumerate() {
+        let cls = &classes[cls_idx[i]];
         println!(
-            "{}: (x = {}, y = {}, w = {}, h = {})",
+            "{}: (x = {}, y = {}, w = {}, h = {}), prob = {:.3}",
             cls,
             obj.get_x(),
             obj.get_y(),
             obj.get_width(),
-            obj.get_height()
+            obj.get_height(),
+            obj.get_prob()
         );
     }
 }

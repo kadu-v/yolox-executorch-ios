@@ -95,7 +95,12 @@ impl YoloX {
         1.0 / (1.0 + (-x).exp())
     }
 
-    pub fn post_processing(&self, preds: &Tensor) -> Vec<Object> {
+    pub fn post_processing(
+        &self,
+        preds: &Tensor,
+        tracking: bool,
+        tracking_cls: i32,
+    ) -> (Vec<usize>, Vec<Object>) {
         let preds = &preds.data;
         let mut positions = vec![];
         let mut classes = vec![];
@@ -114,28 +119,32 @@ impl YoloX {
             let y1 = preds[offset + 1];
             let x2 = preds[offset + 2];
             let y2 = preds[offset + 3];
+
             classes.push(class);
             positions.push((x1, y1, x2, y2));
             scores.push(objectness);
         }
         let locs = self.calc_loc(&positions, &self.input_sizes);
 
-        let mut class_idx = vec![];
         let mut objs = vec![];
+        let mut class_idx = vec![];
         // filter by objectness
         let indices =
-            self.multiclass_nms_class_agnostic(&locs, &scores, 0.4, 0.4);
+            self.multiclass_nms_class_agnostic(&locs, &scores, 0.4, 0.5);
         for (i, score, x1, y1, x2, y2) in indices {
+            // filter by class when tracking is enabled
+            if tracking && classes[i] as i32 != tracking_cls {
+                continue;
+            }
             let obj = Object::new(
                 Rect::new(x1, y1, (x2 - x1).abs(), (y2 - y1).abs()),
-                classes[i],
                 score,
                 None,
             );
-            class_idx.push(classes[i] as i32);
             objs.push(obj);
+            class_idx.push(classes[i]);
         }
-        objs
+        (class_idx, objs)
     }
 
     fn calc_loc(

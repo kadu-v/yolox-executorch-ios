@@ -59,18 +59,27 @@ pub unsafe extern "C" fn c_detect(
     detector: *mut CDetector,
     image: *const f32,
     image_len: i32,
+    tracking: bool,
+    tracking_cls: i32,
 ) -> DetResult {
     let detector = &mut *detector;
     let image = slice::from_raw_parts(image, image_len as usize);
-    let (preds, pre_processing_time, forward_time, post_processing_time) =
-        detector.detector.detect(image);
-    let preds = preds
+    let (
+        class_idx,
+        objs,
+        pre_processing_time,
+        forward_time,
+        post_processing_time,
+    ) = detector.detector.detect(image, tracking, tracking_cls);
+    let preds = class_idx
+        .iter()
+        .zip(objs.iter())
         .into_iter()
-        .flat_map(|obj| {
+        .flat_map(|(&idx, obj)| {
             vec![
-                obj.get_label() as f32,
-                obj.get_x(),
-                obj.get_track_id().unwrap() as f32,
+                idx as f32,
+                obj.get_prob(),
+                obj.get_track_id().unwrap_or(0) as f32,
                 obj.get_x(),
                 obj.get_y(),
                 obj.get_width(),

@@ -11,7 +11,7 @@ apple = ["berry-executorch/apple"]
 
 [dependencies]
 berry-executorch = { path = "./berry-executorch" }
-jamtrack-rs = { git = "ssh://git@github.com/kadu-v/jamtrack-rs.git", version = "0.2.0" }
+jamtrack-rs = { git = "ssh://git@github.com/kadu-v/jamtrack-rs.git", version = "0.2.2" }
 anyhow = "1.0.94"
 imageproc = "0.25.0"
 
