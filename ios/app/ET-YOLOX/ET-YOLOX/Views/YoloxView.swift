@@ -16,7 +16,7 @@ struct YoloxView: View {
     @State var tracking: Bool = false
 
     @State var trackingObj: String = "Person"
-    let trackingObjs = ["Person": 0, "Car": 2, "Bicycle": 3]
+    let trackingObjs = ["Person",  "Car", "Bicycle", "Dog"]
     var body: some View {
         VStack {
             HostedYoloxViewController(aspectRatio: $aspectRatio,
@@ -38,7 +38,7 @@ struct YoloxView: View {
 
                     VStack(spacing: 16) {
                         Picker("Choose an option", selection: $trackingObj) {
-                            ForEach(trackingObjs.map { $0.key }, id: \.self) { obj in
+                            ForEach(trackingObjs, id: \.self) { obj in
                                 Text(obj)
                             }
                         }

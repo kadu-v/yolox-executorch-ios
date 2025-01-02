@@ -15,7 +15,7 @@ class YoloxViewController: ViewController {
     var detectionLayer: CALayer!
     var detector: Yolox
 
-    let trackingObjs = ["Person": 0, "Car": 2, "Bicycle": 3]
+    let trackingObjs = ["Person": 0, "Car": 2, "Bicycle": 3, "Dog": 16]
 
     // モデルのアスペクト比
     @Binding var aspectRatio: Float
