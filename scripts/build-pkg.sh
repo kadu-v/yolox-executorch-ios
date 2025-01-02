@@ -54,6 +54,7 @@ else
             -output $SCRIPT_DIR/../ios/swift-pkg/Engine/CEngine.xcframework
         
         println "Copy to model to swift-pkg Resources"
+        mkdir -p $SCRIPT_DIR/../ios/swift-pkg/Engine/Sources/Resources
         cp -r $SCRIPT_DIR/../engine/models/*.pte $SCRIPT_DIR/../ios/swift-pkg/Engine/Sources/Resources
         cp -r $SCRIPT_DIR/../engine/models/*.txt $SCRIPT_DIR/../ios/swift-pkg/Engine/Sources/Resources
     )

@@ -26,7 +26,12 @@ extern "C"
 
     void c_reset(CDetector *detector);
 
-    DetResult c_detect(CDetector *detector, const float *image, const int32_t image_len);
+    DetResult c_detect(
+        CDetector *detector,
+        const float *image,
+        const int32_t image_len,
+        bool tracking,
+        int32_t tracking_cls);
 
     void c_drop_det_result(DetResult result);
 #if __cplusplus

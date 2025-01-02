@@ -72,9 +72,9 @@ class Yolox {
         return rgbInput
     }
 
-    private func invoke(input: inout [Float], len: Int) -> ([Float], Float, Float, Float) {
+    private func invoke(input: inout [Float], len: Int, tracking: Bool, trackingCls: Int) -> ([Float], Float, Float, Float) {
         let output = input.withUnsafeMutableBufferPointer { ptr in
-            CEngine.c_detect(detector, ptr.baseAddress, Int32(len))
+            CEngine.c_detect(detector, ptr.baseAddress, Int32(len), tracking, Int32(trackingCls))
         }
 
         let data = output.objects
@@ -86,12 +86,12 @@ class Yolox {
         return (objects, preprocessTime, forwardTime, postprocessTime)
     }
 
-    public func detect(pixelBuffer: CVPixelBuffer, modelInputRange: CGRect) -> ([Float], Float, Float, Float)? {
+    public func detect(pixelBuffer: CVPixelBuffer, modelInputRange: CGRect, tracking: Bool, trackingCls: Int) -> ([Float], Float, Float, Float)? {
         guard var rgbInput = preprocess(pixelBuffer: pixelBuffer, modelInputRange: modelInputRange)
         else {
             return nil
         }
-        let objects = invoke(input: &rgbInput, len: rgbInput.count)
+        let objects = invoke(input: &rgbInput, len: rgbInput.count, tracking: tracking, trackingCls: trackingCls)
         return objects
     }
 }

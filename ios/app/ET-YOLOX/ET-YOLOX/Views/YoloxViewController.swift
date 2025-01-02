@@ -15,17 +15,30 @@ class YoloxViewController: ViewController {
     var detectionLayer: CALayer!
     var detector: Yolox
 
+    let trackingObjs = ["Person": 0, "Car": 2, "Bicycle": 3]
+
     // モデルのアスペクト比
     @Binding var aspectRatio: Float
     @Binding var modelName: String
     @Binding var modelPath: String
     @Binding var inputSizes: [Int]
 
-    init(aspectRatio: Binding<Float>, modelName: Binding<String>, modelPath: Binding<String>, inputSizes: Binding<[Int]>) {
+    @Binding var tracking: Bool
+    @Binding var trackingObj: String
+
+    init(aspectRatio: Binding<Float>,
+         modelName: Binding<String>,
+         modelPath: Binding<String>,
+         inputSizes: Binding<[Int]>,
+         tracking: Binding<Bool>,
+         trackingObj: Binding<String>)
+    {
         _aspectRatio = aspectRatio
         _modelName = modelName
         _modelPath = modelPath
         _inputSizes = inputSizes
+        _tracking = tracking
+        _trackingObj = trackingObj
 
         // モデルの初期化
         let modelPath = Bundle.main.path(forResource: "Engine_Engine.bundle/" + modelPath.wrappedValue, ofType: "pte")!
@@ -130,21 +143,23 @@ class YoloxViewController: ViewController {
         drawTime(preprocessTime: preprocessTime,
                  inferTime: inferenceTime,
                  postprocessTime: postprocessTime)
-        for i in 0 ..< preds.count / 6 {
-            let offset = i * 6
+        for i in 0 ..< preds.count / 7 {
+            let offset = i * 7
             let clsIdx = preds[offset + 0]
             let score = preds[offset + 1]
-            let x1 = preds[offset + 2] / Float(detector.InputSizes.3)
-            let y1 = preds[offset + 3] / Float(detector.InputSizes.2)
-            let x2 = preds[offset + 4] / Float(detector.InputSizes.3)
-            let y2 = preds[offset + 5] / Float(detector.InputSizes.2)
+            let trackId = preds[offset + 2]
+            let x = preds[offset + 3] / Float(detector.InputSizes.3)
+            let y = preds[offset + 4] / Float(detector.InputSizes.2)
+            let w = preds[offset + 5] / Float(detector.InputSizes.3)
+            let h = preds[offset + 6] / Float(detector.InputSizes.2)
 
-            if score < 0.65 {
+            if score < 0.55 {
                 continue
             }
             let cls = detector.getClass(clsIdx: clsIdx)
-            let bbox = CGRect(x: CGFloat(x1), y: CGFloat(y1), width: CGFloat(x2 - x1), height: CGFloat(y2 - y1))
-            drawDetection(bbox: bbox, text: String(format: "%@ %.2f", cls, score))
+            let bbox = CGRect(x: CGFloat(x), y: CGFloat(y), width: CGFloat(w), height: CGFloat(h))
+            let text = tracking ? String(format: "%d: %@ %.2f\n", Int(trackId), cls, score) : String(format: "%@ %.2f\n", cls, score)
+            drawDetection(bbox: bbox, text: text)
         }
         CATransaction.commit()
     }
@@ -156,19 +171,17 @@ class YoloxViewController: ViewController {
 
         let modelInputRange = detectionLayer.frame.applying(
             previewLayer.bounds.size.transformKeepAspect(toFitIn: CGSize(width: 1080, height: 1980)))
-        let output = detector.detect(pixelBuffer: pixelBuffer, modelInputRange: modelInputRange)
+        let trackingCls = trackingObjs[trackingObj] != nil ? trackingObjs[trackingObj]! : 0
+        let output = detector.detect(
+            pixelBuffer: pixelBuffer,
+            modelInputRange: modelInputRange,
+            tracking: tracking,
+            trackingCls: trackingCls)
         guard let output = output else {
             os_log("Failed to detect objects.")
             return
         }
         let (preds, preprocessTime, inferenceTime, postprocessTime) = output
-
-//        let
-//            = intepreter.detect(pixelBuffer: pixelBuffer, modelInputRange: modelInputRange)
-//        let end = Date()
-//        let intervalTime = end.timeIntervalSince(start) * 1000
-//        print("推論時間: \(intervalTime) sec")
-//
 
         Task { @MainActor in
             drawDetections(preds: preds, preprocessTime: preprocessTime, inferenceTime: inferenceTime, postprocessTime: postprocessTime)
@@ -181,8 +194,17 @@ struct HostedYoloxViewController: UIViewControllerRepresentable {
     @Binding var modelName: String
     @Binding var modelPath: String
     @Binding var inputSizes: [Int]
+    @Binding var tracking: Bool
+    @Binding var trackingObj: String
+
     func makeUIViewController(context: Context) -> YoloxViewController {
-        return YoloxViewController(aspectRatio: $aspectRatio, modelName: $modelName, modelPath: $modelPath, inputSizes: $inputSizes)
+        return YoloxViewController(
+            aspectRatio: $aspectRatio,
+            modelName: $modelName,
+            modelPath: $modelPath,
+            inputSizes: $inputSizes,
+            tracking: $tracking,
+            trackingObj: $trackingObj)
     }
 
     func updateUIViewController(_ uiViewController: YoloxViewController, context: Context) {
@@ -194,8 +216,12 @@ struct HostedYoloxViewController: UIViewControllerRepresentable {
             y: uiViewController.detectionLayer.frame.minY,
             width: uiViewController.detectionLayer.frame.width,
             height: uiViewController.detectionLayer.frame.width * CGFloat(aspectRatio))
-        let modelPath = Bundle.main.path(forResource: "Engine_Engine.bundle/" + modelPath, ofType: "pte")!
-        uiViewController.detector = Yolox(modelPath: modelPath, inputSizes: inputSizes)
-        uiViewController.detector.loadModel()
+        DispatchQueue.main.async {
+            let modelPath = Bundle.main.path(forResource: "Engine_Engine.bundle/" + modelPath, ofType: "pte")!
+            uiViewController.detector = Yolox(modelPath: modelPath, inputSizes: inputSizes)
+            uiViewController.detector.loadModel()
+            uiViewController.tracking = tracking
+            uiViewController.trackingObj = trackingObj
+        }
     }
 }
